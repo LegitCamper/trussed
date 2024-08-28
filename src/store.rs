@@ -298,7 +298,7 @@ macro_rules! store {
             }
 
             pub fn claim() -> Option<$store> {
-                use core::sync::atomic::{AtomicBool, Ordering};
+                use portable_atomic::{AtomicBool, Ordering};
                 // use $crate::store::NotSendOrSync;
 
                 static CLAIMED: AtomicBool = AtomicBool::new(false);

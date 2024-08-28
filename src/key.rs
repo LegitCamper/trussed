@@ -1,5 +1,4 @@
 use core::ptr::write_volatile;
-use core::sync::atomic;
 
 use heapless::Vec;
 use serde::{de::Visitor, ser::SerializeMap, Deserialize, Serialize};
@@ -157,7 +156,7 @@ impl Zeroize for Flags {
         unsafe {
             write_volatile(self, Flags::empty());
         }
-        atomic::compiler_fence(atomic::Ordering::SeqCst);
+        portable_atomic::compiler_fence(portable_atomic::Ordering::SeqCst);
     }
 }
 
