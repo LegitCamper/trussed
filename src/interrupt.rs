@@ -1,7 +1,5 @@
-use core::{
-    fmt::Debug,
-    sync::atomic::{AtomicU8, Ordering::Relaxed},
-};
+use core::fmt::Debug;
+use portable_atomic::{AtomicU8, Ordering::Relaxed};
 
 #[derive(Default, Debug, PartialEq, Eq)]
 pub enum InterruptState {
